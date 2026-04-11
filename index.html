@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>DT EARNING ZONE</title>
+    <link rel="icon" href="https://i.ibb.co/gLQsBHNp/logo.png" />
+    <script>
+      // Suppress the annoying CloudStorage warning for version 6.0 and provide a polyfill
+      (function() {
+        const originalError = console.error;
+        console.error = function(...args) {
+          if (args[0] && typeof args[0] === 'string' && args[0].includes('CloudStorage is not supported')) {
+            return;
+          }
+          originalError.apply(console, args);
+        };
+
+        window.Telegram = window.Telegram || {};
+        window.Telegram.WebApp = window.Telegram.WebApp || {};
+        
+        const mockCloudStorage = {
+          setItem: (k, v, cb) => cb && cb(null, false),
+          getItem: (k, cb) => cb && cb(null, null),
+          removeItem: (k, cb) => cb && cb(null, false),
+          getKeys: (cb) => cb && cb(null, [])
+        };
+
+        if (!window.Telegram.WebApp.CloudStorage) {
+          Object.defineProperty(window.Telegram.WebApp, 'CloudStorage', {
+            get: () => mockCloudStorage,
+            configurable: true,
+            enumerable: true
+          });
+        }
+      })();
+    </script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src='//libtl.com/sdk.js' data-zone='10251457' data-sdk='show_10251457'></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

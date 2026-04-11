@@ -1,0 +1,10 @@
+{
+  "apiKey": "AIzaSyD5f57pJoeWBV6KOSsYnPyyseAIDzgs8z8",
+  "authDomain": "firesold.firebaseapp.com",
+  "projectId": "firesold",
+  "storageBucket": "firesold.firebasestorage.app",
+  "messagingSenderId": "110667053730",
+  "appId": "1:110667053730:web:846975e57e2fe9336835fb",
+  "measurementId": "G-HDX8XVX1ZL",
+  "databaseURL": "https://firesold-default-rtdb.firebaseio.com"
+}
